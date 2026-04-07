@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 // CONFIGURACIÓN: Google Sheets Script URL
 // ========================================
 // URL del script de Google Sheets para AMAIRE
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzLDT_OwG9bWbU_rHf9MdeWETksfPmN2byXwbywSYW0jutUT_SPcdC9Mn5mOxOE7FEx1Q/exec';
+// const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzLDT_OwG9bWbU_rHf9MdeWETksfPmN2byXwbywSYW0jutUT_SPcdC9Mn5mOxOE7FEx1Q/exec';
 
 // Utilidades para __dirname en ESModules
 const __filename = fileURLToPath(import.meta.url);
@@ -133,29 +133,29 @@ app.post('/enviarYDescargar', async (req, res) => {
         }
 
         // ========================================
-        // ENVIAR A GOOGLE SHEETS (ACTIVO)
+        // ENVIAR A GOOGLE SHEETS (DESACTIVADO)
         // ========================================
-        const formDataForGoogleSheets = new URLSearchParams({
-            first_name: body.first_name,
-            phone: body.phone,
-            email: body.email,
-            '00N3l00000Q7A54': body['00N3l00000Q7A54'],
-            '00N3l00000Q7A57': body['00N3l00000Q7A57'],
-            '00N3l00000Q7A4k': body['00N3l00000Q7A4k'],
-            '00N3l00000Q7A4n': body['00N3l00000Q7A4n'],
-            '00N3l00000Q7A5S': body['00N3l00000Q7A5S'],
-        });
+        // const formDataForGoogleSheets = new URLSearchParams({
+        //     first_name: body.first_name,
+        //     phone: body.phone,
+        //     email: body.email,
+        //     '00N3l00000Q7A54': body['00N3l00000Q7A54'],
+        //     '00N3l00000Q7A57': body['00N3l00000Q7A57'],
+        //     '00N3l00000Q7A4k': body['00N3l00000Q7A4k'],
+        //     '00N3l00000Q7A4n': body['00N3l00000Q7A4n'],
+        //     '00N3l00000Q7A5S': body['00N3l00000Q7A5S'],
+        // });
 
-        const googleSheetsResponse = await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            body: formDataForGoogleSheets,
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        });
+        // const googleSheetsResponse = await fetch(GOOGLE_SCRIPT_URL, {
+        //     method: 'POST',
+        //     body: formDataForGoogleSheets,
+        //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        // });
 
-        if (!googleSheetsResponse.ok) {
-            console.error('Error al enviar a Google Sheets');
-            return res.status(500).json({ error: 'Error al registrar en Google Sheets' });
-        }
+        // if (!googleSheetsResponse.ok) {
+        //     console.error('Error al enviar a Google Sheets');
+        //     return res.status(500).json({ error: 'Error al registrar en Google Sheets' });
+        // }
 
         // ========================================
         // ENVIAR A SALESFORCE (ACTIVO)
@@ -250,29 +250,29 @@ app.post('/enviar', async (req, res) => {
         }
 
         // ========================================
-        // ENVIAR A GOOGLE SHEETS (ACTIVO)
+        // ENVIAR A GOOGLE SHEETS (DESACTIVADO)
         // ========================================
-        const formDataForGoogleSheets = new URLSearchParams({
-            first_name: body.first_name,
-            phone: body.phone,
-            email: body.email,
-            '00N3l00000Q7A54': body['00N3l00000Q7A54'],
-            '00N3l00000Q7A57': body['00N3l00000Q7A57'],
-            '00N3l00000Q7A4k': body['00N3l00000Q7A4k'],
-            '00N3l00000Q7A4n': body['00N3l00000Q7A4n'],
-            '00N3l00000Q7A5S': body['00N3l00000Q7A5S'],
-        });
+        // const formDataForGoogleSheets = new URLSearchParams({
+        //     first_name: body.first_name,
+        //     phone: body.phone,
+        //     email: body.email,
+        //     '00N3l00000Q7A54': body['00N3l00000Q7A54'],
+        //     '00N3l00000Q7A57': body['00N3l00000Q7A57'],
+        //     '00N3l00000Q7A4k': body['00N3l00000Q7A4k'],
+        //     '00N3l00000Q7A4n': body['00N3l00000Q7A4n'],
+        //     '00N3l00000Q7A5S': body['00N3l00000Q7A5S'],
+        // });
 
-        const googleSheetsResponse = await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            body: formDataForGoogleSheets,
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        });
+        // const googleSheetsResponse = await fetch(GOOGLE_SCRIPT_URL, {
+        //     method: 'POST',
+        //     body: formDataForGoogleSheets,
+        //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        // });
 
-        if (!googleSheetsResponse.ok) {
-            console.error('Error al enviar a Google Sheets');
-            return res.status(500).json({ error: 'Error al registrar en Google Sheets' });
-        }
+        // if (!googleSheetsResponse.ok) {
+        //     console.error('Error al enviar a Google Sheets');
+        //     return res.status(500).json({ error: 'Error al registrar en Google Sheets' });
+        // }
 
         // ========================================
         // ENVIAR A SALESFORCE (ACTIVO)
